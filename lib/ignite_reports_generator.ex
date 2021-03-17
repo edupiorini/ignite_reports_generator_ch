@@ -1,5 +1,16 @@
 defmodule IgniteReportsGenerator do
-  @def build(filename) do
+  @employees [
+    "Cleiton",
+    "Daniele",
+    "Diego",
+    "Giuliano",
+    "Jakeliny",
+    "Joseph",
+    "Mayk",
+    "Rafael",
+    "Vinicius"
+  ]
+  def build(filename) do
     filename
     |> parser()
   end
