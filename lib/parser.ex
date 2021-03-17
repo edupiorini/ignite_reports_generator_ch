@@ -2,10 +2,7 @@ defmodule IgniteReportsGenerator.Parser do
   def parser(filename) do
     "reports/#{filename}"
     |> File.stream!()
-    |> Enum.reduce(%{}, fn line, report ->
-      [name, hours_worked, _day, _month, _yearh] = parse_line(line)
-      Map.put(report, name, hours_worked)
-    end)
+    |> Stream.map(&parse_line/1)
   end
 
   defp parse_line(line) do
